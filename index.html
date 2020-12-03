@@ -27,7 +27,7 @@
         <nav>
             <ul class="navbar__menu">
                 <li class="navbar__menu__item">Home</li>
-                <li class="navbar__menu__item">About me</li>
+                <li class="navbar__menu__item">About</li>
                 <li class="navbar__menu__item">Project</li>
                 <li class="navbar__menu__item">Contact</li>
             </ul>
@@ -38,39 +38,73 @@
     <!-- Home -->
     <section id="home">
         <div class="home__title__container">
-            <div class="home__title__line1">(Yun, Com)=>{</div>
-            <div class="home__title__line2">&nbsp;&nbsp;&nbsp;···</div>
-            <div class="home__title__line3">&nbsp;&nbsp;&nbsp;return new;</div>
-            <div class="home__title__line4">}</div>
+            <p class="home__title__line1">(Yun, Com)=>{</p>
+            <p class="home__title__line2">&nbsp;&nbsp;&nbsp;···</p>
+            <p class="home__title__line3">&nbsp;&nbsp;&nbsp;return new;</p>
+            <p class="home__title__line4">}</p>
         </div>
         <div class="home__tag__container">
             <ul>
-                <li class="home__tag">Passion</li>
-                <li class="home__tag">Joyful</li>
-                <li class="home__tag">Better</li>
-                <li class="home__tag fe">Front-End</li>
+                <li class="home__tag">#Passion</li>
+                <li class="home__tag">#Joyful</li>
+                <li class="home__tag">#Better</li>
+                <li class="home__tag fe">#Front-End</li>
             </ul>
         </div>
     </section>
 
     <!-- About -->
     <section id="about">
-        <img src="./IMG/css3-brands.pn" alt="About me img">
-        <h1>About me</h1>
-        <p class="about__description">
-            Front-End Dev. Yun Jong Yun.<br/>
-            Work on projects with team<br/>
-            Using HTML, CSS, JS, Python, Node JS React, Figma.<br/>
-            Worked as SQA Developer in @ Company for 1 year.
-        </p>
+        
+        <img class="about__img" src="./IMG/css3-brands.png" alt="About me img">
+        
+        <div class="about__description">
+            <h1>About me</h1>
+            <p class="about__description__text">
+                Front-End Dev. Yun Jong Yun.<br/>
+                Work on projects with team<br/>
+                Using HTML, CSS, JS, Python, Node JS React, Figma.<br/>
+                Worked as SQA Developer in @ Company for 1 year.
+            </p>
+        </div>
 
     </section>
 
     <!-- Skills -->
     <section id="skills">
-        <h1>Skills</h1>
-        <div class="skills__container">
-            <!-- icon list -->
+        <div class="skills__layout">
+            <h1>Skills</h1>
+            <div class="skills__container">
+                <!-- icon list -->
+                <div class="skill__icon__box">
+                    <i class="fab fa-html5 skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-css3 skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-js skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-python skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-react skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-jira skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-figma skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                <i class="fab fa-github skill__icon"></i>
+                </div>
+                <div class="skill__icon__box">
+                    <i class="fab fa-java skill__icon"></i>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -78,27 +112,34 @@
     <section id="project">
         <h1>Project</h1>
         <div class="project__container">
-            <img src="" alt="Project IMG">
-            <h2>Mole Pang</h2>
-            <p class="project__text">2020.10 - Now </p>
-            <h3>Detail</h3>
-            <p class="project__text">Education Game  for children
-                <br/>Team project for ---------</p>
-            <h3>Part</h3>
-            <p class="project__text">Develop Front-End Section</p>
-            <h3>Detail</h3>
-            <p class="project__text">React. js<br/>
-                Styled - components</p>
+            <div class="project__img__box">
+                <!-- <img src="" alt="Project IMG"> -->
+            </div>
 
-            
-            <a class="project__more__button" href="#">more</a>
-            <div>오른쪽화살표</div>
+            <div class="project__description">
+                <h2>Mole Pang</h2>
+                <p class="project__text">2020.10 - Now </p>
+                <h3>Detail</h3>
+                <p class="project__text">Education Game  for children
+                    <br/>Team project for ---------</p>
+                <h3>Part</h3>
+                <p class="project__text">Develop Front-End Section</p>
+                <h3>Detail</h3>
+                <p class="project__text">React. js<br/>
+                    Styled - components</p>    
+                <div>
+                    <a class="project__more__button" href="#">more</a>
+                    <div>------------------------------------@</div>
+                </div>
+            </div>
 
         </div>
         <div class="project__img__slider">
-            <button>왼쪽화살표</button>
+            <button class="slider__left__btn">‹</button>
             <!-- 이미지 list -->
-            <button>>오른쪽화살표</button>
+            <div class="slider__img__box"></div>
+            <div class="slider__img__box"></div>
+            <button class="slider__right__btn">›</button>
         </div>
     </section>
 
@@ -106,17 +147,27 @@
         <h1>Contact</h1>
         <div class="contact__container">
             <div class="contact__container__left">
-                <img src="" alt="Contact IMG">
+                <div class="contact__img">
+                    <!-- <img src="" alt="Contact IMG"> -->
+                </div>
+                
                 <h3>E-mail</h3>
                 <p>dbswhddbs1@gmail.com</p>
             </div>
             <div class="contact__container__right">
-                <h4>Name</h4>
-                <input type="text">
-                <h4>E-mail</h4>
-                <input type="text">
-                <h4>Message</h4>
-                <input type="text">
+                <div>
+                    <h4>Name</h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>E-mail</h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Message</h4>
+                    <input type="text">
+                    
+                </div>
                 <button>Submit</button>
 
             </div>
