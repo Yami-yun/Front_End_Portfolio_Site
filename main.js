@@ -1,0 +1,1 @@
+$("p:contains('new')").css({color:"red"})
