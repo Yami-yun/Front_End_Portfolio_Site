@@ -14,7 +14,33 @@
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="main.css">
     <title>Yun's Portfolio</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_IDnxEqPhsXYXniOAYgnXI');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // generate a five digit number for the contact_number variable
+                // this.user_name.value = document.getElementById('user_name')
+                // this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_q1mboeq', 'template_rds2tig', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
     <script src="main.js" defer></script>
+    
 
 </head>
 <body>
@@ -23,46 +49,39 @@
         <div class="header__logo">
             Yun's
         </div>
+        <div class="header__navbar__icon">
+            <i class="fas fa-equals"></i>
+        </div>
         <!-- Navbar -->
         <nav>
             <ul class="navbar__menu">
-                <li class="navbar__menu__item">Home</li>
-                <li class="navbar__menu__item">About</li>
-                <li class="navbar__menu__item">Project</li>
-                <li class="navbar__menu__item">Contact</li>
+                <li class="navbar__menu__item item__home" data-link='#home' data-test="test">Home</li>
+                <li class="navbar__menu__item item__other" data-link='#about'>About</li>
+                <li class="navbar__menu__item item__other" data-link='#skills'>Skill</li>
+                <li class="navbar__menu__item item__other" data-link='#project'>Project</li>
+                <li class="navbar__menu__item item__other" data-link='#contact'>Contact</li>
             </ul>
 
         </nav>
     </header>
 
     <!-- Home -->
-    <!-- <section id="home">
-        <div class="home__title__container">
-            <p class="home__title__line1">(Yun, Com)=>{</p>
-            <p class="home__title__line2">&nbsp;&nbsp;&nbsp;···</p>
-            <p class="home__title__line3">&nbsp;&nbsp;&nbsp;return new;</p>
-            <p class="home__title__line4">}</p>
-        </div>
-        <div class="home__tag__container">
-            <ul>
-                <li class="home__tag">#Passion</li>
-                <li class="home__tag">#Joyful</li>
-                <li class="home__tag">#Better</li>
-                <li class="home__tag fe">#Front</li>
-            </ul>
-        </div>
-    </section> -->
-
     <section id="home">
         <div class="home__title__container">
             <!-- <p class="home__title__line1">(Yun, Com)=>{<br/>   ···<br/>   return new;<br/>}</p> -->
-            <p class="home__title__line1">(Yun, Com)=>{</p>
-            <p class="home__title__line2">&nbsp;&nbsp;&nbsp;···</p>
-            <p class="home__title__line3">&nbsp;&nbsp;&nbsp;return <span>new</span>;</p>
-            <p class="home__title__line4">}</p>
+            <p class="home__title__line">(Yun, Com)=>{</p>
+            <p class="home__title__line">&nbsp;&nbsp;&nbsp;···</p>
+            <div style="display: flex;">
+                <p class="home__title__line">&nbsp;&nbsp;&nbsp;return&nbsp;</p>
+                <span class="home__title__line home__title__highlight">new</span>
+                <p class="home__title__line">;</p>
+            </div>
+            <!-- <span class="home__title__line">;</span> -->
+            <p class="home__title__line">}</p>
         </div>
         <div class="home__tag__container">
             <ul>
+                <img class="home__mouse__img" src="IMG/IMG_mouse.png" alt="">
                 <li class="home__tag">#Passion</li>
                 <li class="home__tag">#Joyful</li>
                 <li class="home__tag">#Better</li>
@@ -74,16 +93,23 @@
     <!-- About -->
     <section id="about">
         
-        <img class="about__img" src="./IMG/css3-brands.png" alt="About me img">
+        
         
         <div class="about__description">
-            <h1>About me</h1>
-            <p class="about__description__text">
-                Front-End Dev. Yun Jong Yun.<br/>
-                Work on projects with team<br/>
-                Using HTML, CSS, JS, Python, Node JS React, Figma.<br/>
-                Worked as SQA Developer in @ Company for 1 year.
-            </p>
+            <img class="about__img" src="./IMG/Img_About1.jpg" alt="About img">    
+            <div class="about__left__layout">
+                <div class="about__left__top" >
+                    <h1>About me</h1>
+                    <img class="about__img2" src="./IMG/Img_About1.jpg" alt="About me img">
+                </div>
+                
+                <p class="about__description__text">
+                    Front-End Dev. Yun Jong Yun.<br/>
+                    Work on projects with team.<br/>
+                    Using HTML, CSS, JS, Python, Node JS React, Figma.<br/>
+                    Worked as SQA Developer in @ Company for 1 year.
+                </p>
+            </div>        
         </div>
 
     </section>
@@ -131,23 +157,23 @@
         <h1>Project</h1>
         <div class="project__container">
             <div class="project__img__box">
-
+                <img style="width: 100%; height:100%; border-radius: 24px;" src="IMG/project/github-brands.png" alt="p">
             </div>
 
             <div class="project__description">
-                <h2>Mole Pang</h2>
+                <h2 class="project__text">Mole Pang</h2>
                 <p class="project__text">2020.10 - Now </p>
                 <h3>Detail</h3>
                 <p class="project__text">Education Game  for children
                     <br/>Team project for ---------</p>
                 <h3>Part</h3>
                 <p class="project__text">Develop Front-End</p>
-                <h3>Detail</h3>
+                <h3>Stacks</h3>
                 <p class="project__text">React. js<br/>
                     Styled - components</p>    
-                <div>
+                <div class="project__more__group">
                     <a class="project__more__button" href="#">more</a>
-                    <div>--------------------------@</div>
+                    <img src="IMG/IMG_More_Btn.png" alt="">
                 </div>
             </div>
 
@@ -155,38 +181,45 @@
         <div class="project__img__slider">
             <button class="slider__left__btn">‹</button>
 
-            <div class="slider__img__box"></div>
-            <div class="slider__img__box"></div>
+            <div class="img__box__container">
+
+            </div>
             <button class="slider__right__btn">›</button>
         </div>
     </section>
-
+<!-- // https://script.google.com/macros/s/AKfycbwaIa9ny8HpLOJZKghgGkRNk0y8w_MDds9V1aXQ/exec -->
     <section id="contact">
         <h1>Contact</h1>
         <div class="contact__container">
             <div class="contact__container__left">
                 <div class="contact__img">
-                    <img src="IMG/Img_Contact.jpg" alt="Contact IMG">
+                    <img src="IMG/airplane.png" alt="Contact IMG">
                 </div>
                 
                 <h3>E-mail</h3>
                 <p>dbswhddbs1@gmail.com</p>
             </div>
+            
             <div class="contact__container__right">
-                <div class="contact__input__box">
-                    <h4>Name</h4>
-                    <input type="text">
-                </div>
-                <div class="contact__input__box">
-                    <h4>E-mail</h4>
-                    <input type="text">
-                </div>
-                <div class="contact__input__box">
-                    <h4>Message</h4>
-                    <input class="contact__message__box" type="text">
-                    
-                </div>
-                <button>Submit</button>
+                <form id="contact-form" >
+
+                    <div class="contact__input__box">
+                        <h4>Name</h4>
+                        <input type="text" name="user_name">
+                    </div>
+                    <div class="contact__input__box">
+                        <h4>E-mail</h4>
+                        <input type="text" name="user_email">
+                    </div>
+                    <div class="contact__input__box">
+                        <h4>Message</h4>
+                        <input class="contact__message__box" type="text" name="user_message">
+                        
+                    </div>
+
+                    <button class="contact__button" type="submit" value="Send">Submit</button>
+                </form>
+                
 
             </div>
 
@@ -197,7 +230,9 @@
         <div class="footer__container">
 
             <div class="footer__icon">
-                <i class="fab fa-github skill__icon"></i>
+                <a href="https://github.com/Yami-yun" target="_blank">
+                    <i class="fab fa-github skill__icon"></i>
+                </a>
             </div>
             <div class="footer__text">
                 <p>Made with Yun Jong Yun</p>

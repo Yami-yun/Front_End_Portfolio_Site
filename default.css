@@ -15,6 +15,9 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
 }
+*:focus {
+  outline: none;
+}
 html,
 body,
 div,
