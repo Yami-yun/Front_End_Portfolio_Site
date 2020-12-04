@@ -72,9 +72,23 @@ function enterView(selector){
 }
 
 // Navbar icon click event on mobile screen
-const navbarIcon = document.querySelector('.header__navbar__icon');
-navbarIcon.addEventListener('click', ()=>{
-    navbarMenu.classList.toggle('navbar__open')
+const navbarIconBox = document.querySelector('.header__navbar__icon');
+const navbarIconBurger = document.querySelector('.header__navbar__icon i');
+console.log(navbarIconBurger);
+let navbarIconState = true;
+navbarIconBox.addEventListener('click', ()=>{
+    navbarMenu.classList.toggle('navbar__open');
+
+    if(navbarIconState === true){
+        navbarIconBurger.classList.remove("fa-bars");
+        navbarIconBurger.classList.add("fa-times");
+        navbarIconState = false;
+    }else{
+        navbarIconBurger.classList.remove("fa-times");
+        navbarIconBurger.classList.add("fa-bars");
+        navbarIconState = true;
+    }
+    
 
 })
 
@@ -84,7 +98,17 @@ const home = document.querySelector('#home');
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', ()=>{
     home.style.opacity = 1 - window.scrollY / homeHeight;
-    navbarIcon.style.opacity = 1 - window.scrollY / homeHeight;
+    navbarIconBox.style.opacity = 1 - window.scrollY / homeHeight;
+
+
+    if(window.scrollY / homeHeight > 1.01){
+        navbarIconBox.style.display = 'none';
+    }else{
+        navbarIconBox.style.display = 'block';
+    }
+
+    // console.log(window.scrollY / homeHeight);
+    
     // navbar.style.opacity = 1 - window.scrollY / homeHeight;
 })
 
