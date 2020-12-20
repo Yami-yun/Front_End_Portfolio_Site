@@ -1,5 +1,5 @@
+// ## HOME SECTION ##
 // home Title Animation
-
 const homeTitleList = document.querySelectorAll(".home__title__line");
 const homeTitleHighlight = document.querySelector(".home__title__highlight");
 
@@ -25,7 +25,6 @@ const homeTitleAnimation = setInterval(()=>{
         isHomeTitleAnimation = true;
 
         clearInterval(homeTitleAnimation);
-        
     }
     else{
         if(homeTitleList[listIndex].textContent.length < homeTitleTxtList[listIndex].length){
@@ -46,6 +45,7 @@ const homeTitleAnimation = setInterval(()=>{
 
 }, 150);
 
+// ## NAVBAR SECTION ##
 // Go to tag screen if navbar menu click
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event)=>{
@@ -100,18 +100,35 @@ document.addEventListener('scroll', ()=>{
     home.style.opacity = 1 - window.scrollY / homeHeight;
     navbarIconBox.style.opacity = 1 - window.scrollY / homeHeight;
 
-
     if(window.scrollY / homeHeight > 1.01){
         navbarIconBox.style.display = 'none';
     }else{
         navbarIconBox.style.display = 'block';
     }
 
-    // console.log(window.scrollY / homeHeight);
-    
-    // navbar.style.opacity = 1 - window.scrollY / homeHeight;
 })
 
+// ## SKILL SECTION ##
+const skillsContainer = document.querySelector(".skills__container");
+const skillTxt = ["HTML", "CSS", "JS", "PYTHON", "REACT", 
+"STYLED", "TS", "GIT", "FIGMA", "JIRA"];
+
+for(let i=0 ; i<10; i++){
+    const skillIconBox = document.createElement("div");
+    skillIconBox.setAttribute("class", "skill__icon__box");
+    const skillIconImg = document.createElement("img");
+    skillIconImg.setAttribute("class", "skill__icon__img");
+    skillIconImg.src = `./IMG/skill/skill${i}.png`;
+    const skillIconTxt = document.createElement("h3");
+    skillIconTxt.textContent = skillTxt[i];
+    skillIconTxt.setAttribute("class", "skill__icon__txt");
+
+    skillIconBox.appendChild(skillIconImg);
+    skillIconBox.appendChild(skillIconTxt);
+    skillsContainer.appendChild(skillIconBox);
+}
+
+// ## PROJECT SECTION ##
 const projectdata = [
     {
         "id": 0,
