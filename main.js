@@ -2,10 +2,13 @@
 // home Title Animation
 const homeTitleList = document.querySelectorAll(".home__title__line");
 const homeTitleHighlight = document.querySelector(".home__title__highlight");
+const homeTagContainer = document.querySelector(".home__tag__container");
+
+
 
 let homeTitleTxtList = [];
 
-//home Title Get and init
+// 현재 html에 있는 홈 화면 글자들을 가져와 리스트에 담는다.
 homeTitleList.forEach(homeTitle => {
     homeTitleTxtList.push(homeTitle.textContent)
     homeTitle.textContent = "";
@@ -13,7 +16,7 @@ homeTitleList.forEach(homeTitle => {
 
 
 let textIndex = 1;
-let listIndex = 0;
+let listIndex = 0;                          // homeTitleTxtList index
 let isHomeTitleAnimation = false;
 const homeTitleAnimation = setInterval(()=>{
 
@@ -24,19 +27,28 @@ const homeTitleAnimation = setInterval(()=>{
         console.log("homeTitleAnimation End");
         isHomeTitleAnimation = true;
 
+        // home__tag__container animation 시작
+        homeTagContainer.style.visibility = "visible";
+        homeTagContainer.style.animation = "tag 2s ease-in 1";
+
         clearInterval(homeTitleAnimation);
     }
     else{
+        
         if(homeTitleList[listIndex].textContent.length < homeTitleTxtList[listIndex].length){
+            // Home 화면에 해당 인덱스의 문장이 아직 입력되지 않았을 때, 홈 타이틀 애니메이션 진행이 계속됨
             homeTitleList[listIndex].textContent = homeTitleTxtList[listIndex].slice(0, textIndex);
             textIndex += 1;
         }
         else{
+            
             if(listIndex < homeTitleList.length - 1){
+                // 해당 인덱스의 문장이 입력이 완료 될 경우, 다음 문장으로 넘어간다.
                 listIndex += 1;
                 textIndex = 0;   
             }
             else{
+                // 전체 문장이 입력이 완료되면 해당 애니메이션을 취소한다.
                 isHomeTitleAnimation = true;
 
             }
@@ -133,7 +145,7 @@ const projectdata = [
     {
         "id": 0,
         "imgSrc":"IMG/project/github-brands.png",
-        "projectTitle": "Mole Pang",
+        "projectTitle": "Newone",
         "projectDate": "2020.10 - Now",
         "projectDetail": "Education Game for children ",
         "projectPart": "Develop Front-End",
@@ -141,12 +153,12 @@ const projectdata = [
     },
     {
         "id": 1,
-        "imgSrc":"IMG/project/apple3.jpg",
-        "projectTitle": "Used Goods Trade Site",
-        "projectDate": "2020.11 - Now",
-        "projectDetail": "edu1",
-        "projectPart": "Develop Front-End1",
-        "projectStacks" : "React.js\nStyled-components1",
+        "imgSrc":"IMG/project/D_Card.png",
+        "projectTitle": "D_Card",
+        "projectDate": "20.12.07 - 20.12.18",
+        "projectDetail": "ICT 콤플렉스 앱 개발 챌린지 공모전 참가작",
+        "projectPart": "Develop Front-End",
+        "projectStacks" : 'React-Native<br>Styled-components<br>TypeScript',
     },
     {
         "id": 2,
@@ -185,6 +197,7 @@ const curProjecdtDesList = document.querySelectorAll(".project__description .pro
 
 const projectDataKeys = Object.keys(projectdata[0]).splice(2,5);
 console.log(projectDataKeys);
+
 // if project slider img click > show detailed project
 projectBoxContainer.addEventListener("click", (event)=>{
     if(event.target.dataset.id === undefined){
@@ -193,8 +206,9 @@ projectBoxContainer.addEventListener("click", (event)=>{
     let clickId = event.target.dataset.id;
     curProjectImg.src = projectdata[clickId].imgSrc;
 
+    // 현재 프로젝트 정보
     for(let i=0; i< curProjecdtDesList.length;i++){
-        curProjecdtDesList[i].textContent = projectdata[clickId][projectDataKeys[i]];
+        curProjecdtDesList[i].innerHTML = projectdata[clickId][projectDataKeys[i]];
     }
 }
 );

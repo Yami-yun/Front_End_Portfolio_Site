@@ -100,10 +100,17 @@ header {
   margin-right: 2em;
 }
 
+.home__tag__container{
+  visibility: hidden;
+}
+
 .home__tag__container ul {
   display: flex;
+  justify-content: center;
   align-items: flex-start;
-  margin-left: 12.5em;
+  /* align-items: center; */
+  /* margin-left: 12.5em; */
+  /* border: 1px solid; */
   /* margin-top: 30px; */
 }
 .home__tag__container img {
@@ -124,6 +131,18 @@ li.home__tag {
   border: 1px solid #ffffff;
   border-radius: var(--border-radius-large);
   margin-right: 0.938em;
+  
+
+  
+}
+
+@keyframes tag{
+  from{
+    transform: translateY(40px);
+  }
+  to{
+    transform: translateY(0px);
+  }
 }
 
 /* About */
@@ -137,7 +156,7 @@ li.home__tag {
 
 .about__img {
   width: 400px;
-  height: 400px;
+  height: 370px;
   margin-right: 69px;
 }
 
@@ -212,6 +231,50 @@ li.home__tag {
  
 }
 
+.project__overview{
+
+  width: 1000px;
+  height: 600px;
+  border-radius: 15px;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+
+  /* border: 1px solid; */
+  z-index:5;
+  background: #ffffff;
+}
+
+.exit__btn{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: rgba(4, 166, 247, 0.6);
+  /* border: 1px solid; */
+}
+
+.project__overview__slider{
+  display: flex;
+  height: 100%;
+
+  /* border: 3px solid blue; */
+}
+
+.project__overview__img{
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project__overview__slider button{
+  /* border: 1px solid; */
+  width: 10%;
+  height: 100%;
+  color: rgba(4, 166, 247, 0.6);
+  font-size: var(--font-size-large);
+}
+
 #project h1 {
   
   margin-left: 12%;
@@ -220,7 +283,7 @@ li.home__tag {
 .project__container {
   display: flex;
   justify-content: center;
-  background: rgba(4, 166, 247, 0.6);;
+  background: rgba(4, 166, 247, 0.6);
   margin: 30px 0;
   padding: 2em;
 }
@@ -280,13 +343,9 @@ li.home__tag {
 
 /* Contact */
 #contact {
-  height: 900px;
+  /* height: 900px; */
   padding: 93px 0;
   background: rgba(4, 166, 247, 0.8);
-}
-
-#contact h1 {
-  margin-left: 10%;
 }
 
 .contact__container {
@@ -322,6 +381,23 @@ li.home__tag {
   width: 307px;
   height: 298px; 
   margin: 30px;
+  animation: airplane 9s ease-in infinite;
+}
+
+@keyframes airplane{
+  0%, 100%{
+    transform: scaleY(0.9) translateX(0px);
+  }
+  25%{
+    transform: scaleY(1) translateX(6px);
+  }
+  50%{
+    transform: scaleY(0.9) translateX(0px);
+  }
+  75%{
+    transform: scaleY(1) translateX(-6px);
+  }
+  
 }
 
 .contact__container__right {
@@ -470,15 +546,16 @@ li.home__tag {
     font-size: 2rem;
     font-weight: 900;
     color: #fffafa;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 3px solid #fad902;
   }
+
 
   #home {
     height: 700px;
   }
 
   .home__tag__container ul {
-    display: flex;
+    /* display: flex; */
     margin-left: 0em;
     margin-top: 30px;
   }
@@ -500,7 +577,7 @@ li.home__tag {
   .about__img2 {
     display: block;
     width: 200px;
-    height: 200px;
+    height: 186px;
     margin-right: 0px;
   }
 
@@ -565,6 +642,11 @@ li.home__tag {
     align-items: center;
   }
 
+
+  .contact__container__right{
+    margin-top : 30px;
+  }
+
   .contact__input__box {
     width: 100%;
   }
@@ -607,41 +689,46 @@ li.home__tag {
   }
 
   #home {
-    height: 380px;
+    height: 440px;
   }
 
   .home__title__container {
-    margin-right: 1em;
+    margin-left: 1.8em;
   }
 
   .home__tag__container ul {
     flex-wrap: wrap;
+    /* margin-left: 4px; */
+    /* padding-left: 2px; */
+    /* border: 1px solid; */
   }
 
   li.home__tag {
-    width: 73px;
-    height: 45px;
-    line-height: 38px;
+    width: 104px;
+    height: 38px;
+    line-height: 36px;
+    margin-top: 0px;
     margin-bottom: 10px;
+    
   }
 
   .about__img2 {
     display: block;
     width: 120px;
-    height: 120px;
+    height: 114px;
   }
 
   .about__description__text {
     font-size: var(--font-size-small);
   }
-  /* SKILLS */
-  #skills {
-    margin-left: 1.2em;
+  #skills{
+    margin : 80px 0 0;
   }
-
+  /* SKILLS */
   .skills__layout{
-    width: 340px;
+    width: 300px;
     height: 250px;
+
   }
 
   .skill__icon__box{
@@ -651,23 +738,25 @@ li.home__tag {
 
 
   #contact {
-    padding: 5em;
+    padding: 5em 0;
     background: rgba(4, 166, 247, 0.6);
     margin-bottom: 0px;
   }
 
-  .contact__container__left {
+  .contact__container__left{
+    width: 100%;
+    margin: 0;
+    padding-left: 2vw;
+
+  }
+
+
+
+
+  .contact__container__left__box {
     display: none;
   }
 
-  .contact__img img {
-    width: 250px;
-    height: 250px;
-
-    background: #c4c4c4;
-    border-radius: 200px;
-    margin: 30px;
-  }
 
   .contact__container__right {
     margin-top: 5em;
