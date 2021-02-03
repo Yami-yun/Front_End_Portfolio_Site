@@ -234,13 +234,12 @@ li.home__tag {
 .project__overview{
   display: none;
   width: 84vw;
-  height: 46vw;
+  height: 40vw;
   border-radius: 15px;
   position: fixed;
   top: 16%;
   left: 8%;
 
-  /* border: 1px solid; */
   z-index:5;
   background: #ffffff;
 }
