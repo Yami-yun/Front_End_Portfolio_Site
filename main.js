@@ -144,12 +144,15 @@ for(let i=0 ; i<10; i++){
 const projectdata = [
     {
         "id": 0,
-        "imgSrc":"IMG/project/github-brands.png",
+        "imgSrc":"IMG/project/newone.png",
         "projectTitle": "Newone",
-        "projectDate": "2020.10 - Now",
-        "projectDetail": "Education Game for children ",
-        "projectPart": "Develop Front-End",
-        "projectStacks" : "React.js\nStyled-components",
+        "projectDate": "2020.12.31 - 20.02.02",
+        "projectDetail": "Author Community Site",
+        "projectPart": "Develop Front-End, Back-End, Design",
+        "projectStacks" : 'React<br>Styled-components<br>TypeScript<br>Node JS<br>Express<br>Figma',
+        "projectSrc" : './IMG/project/newone/port',
+        "projectSrcCount" : 11,
+        "gitSrc": "https://github.com/Yami-yun/Newone",
     },
     {
         "id": 1,
@@ -159,16 +162,11 @@ const projectdata = [
         "projectDetail": "ICT 콤플렉스 앱 개발 챌린지 공모전 참가작",
         "projectPart": "Develop Front-End",
         "projectStacks" : 'React-Native<br>Styled-components<br>TypeScript',
+        "projectSrc" : './IMG/project/dcard/port',
+        "projectSrcCount" : 11,
+        "gitSrc": "https://github.com/Yami-yun/D_Card",
     },
-    {
-        "id": 2,
-        "imgSrc":"IMG/project/apple4.jpg",
-        "projectTitle": "Used Goods Trade Site",
-        "projectDate": "2020.12 - Now",
-        "projectDetail": "Edu2",
-        "projectPart": "Develop Front-End2",
-        "projectStacks" : "React.js\nStyled-components2",
-    }
+
 ]
 // = document.querySelector(".slider__img__box");
 const projectBoxContainer = document.querySelector(".img__box__container");
@@ -198,12 +196,15 @@ const curProjecdtDesList = document.querySelectorAll(".project__description .pro
 const projectDataKeys = Object.keys(projectdata[0]).splice(2,5);
 console.log(projectDataKeys);
 
+
+let clickId = 0; // Project id
+
 // if project slider img click > show detailed project
 projectBoxContainer.addEventListener("click", (event)=>{
     if(event.target.dataset.id === undefined){
         return;
     }
-    let clickId = event.target.dataset.id;
+    clickId = event.target.dataset.id;
     curProjectImg.src = projectdata[clickId].imgSrc;
 
     // 현재 프로젝트 정보
@@ -225,3 +226,40 @@ projectSliderRightBtn.addEventListener("click",()=>{
     projectBoxContainer.scrollLeft += 50;
     
 });
+
+
+// 프로젝트 개요
+const projectOverview = document.querySelector(".project__overview");
+const projectOverviewImg = document.querySelector(".project__overview__img");
+const projectMoreButton = document.querySelector(".project__more__button");
+const projectOverviewLeftBtn = document.querySelector(".project__overview .left__btn");
+const projectOverviewRightBtn = document.querySelector(".project__overview .right__btn");
+
+const gitBtn = document.querySelector(".git__btn");
+const exitBtn = document.querySelector(".exit__btn");
+let projectSrcIndex = 1;
+
+projectMoreButton.onclick = () => {
+    projectOverview.style.display = "block";
+    projectOverviewImg.src = projectdata[clickId].projectSrc +'1.PNG';
+    gitBtn.setAttribute('href', projectdata[clickId].gitSrc)
+    console.log(projectdata[clickId].projectSrc +'1.PNG');
+};
+
+exitBtn.onclick = () => {
+    projectOverview.style.display = "none";
+};
+
+projectOverviewLeftBtn.onclick = () => {
+    if(projectSrcIndex !== 1){
+        projectSrcIndex -= 1;
+        projectOverviewImg.src = projectdata[clickId].projectSrc + `${projectSrcIndex}.PNG`;
+    }
+};
+
+projectOverviewRightBtn.onclick = () => {
+    if(projectSrcIndex !== projectdata[clickId].projectSrcCount){
+        projectSrcIndex += 1;
+        projectOverviewImg.src = projectdata[clickId].projectSrc + `${projectSrcIndex}.PNG`;
+    }
+};

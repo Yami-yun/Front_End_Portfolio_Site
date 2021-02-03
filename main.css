@@ -232,25 +232,48 @@ li.home__tag {
 }
 
 .project__overview{
-
-  width: 1000px;
-  height: 600px;
+  display: none;
+  width: 84vw;
+  height: 46vw;
   border-radius: 15px;
   position: fixed;
-  top: 20%;
-  left: 20%;
+  top: 16%;
+  left: 8%;
 
   /* border: 1px solid; */
   z-index:5;
   background: #ffffff;
 }
 
-.exit__btn{
+.project__overview__btn__group{
   position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 2rem;
+  top: 17px;
+  right: 30px;
+
+  display: flex;
+  align-items: center;
+
+  /* border: 1px solid; */
+}
+
+.git__btn img{
+  /* display: flex; */
+  width: 36px;
+  height: 36px;
+  margin-right: 3px;
+
+  font-size: 1rem;
   color: rgba(4, 166, 247, 0.6);
+  /* border: 1px solid; */
+}
+
+.exit__btn{
+  /* position: absolute;
+  top: 15px;
+  right: 20px; */
+  line-height: 5px;
+  font-size: 2rem;
+  color: #4F4F4F;
   /* border: 1px solid; */
 }
 
@@ -306,25 +329,31 @@ li.home__tag {
   height: 563.46px;
   margin-right: 3.625em;
 
-  background-color: gray;
+  background-color: #ffffff;
+}
+
+.project__img__box img{
+  object-fit: contain;
 }
 
 .project__description {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
+  line-height: 200%;
   margin-top: 32px;
 }
 
-.project__more__group {
+.project__description h2{
+  margin-bottom: 8px;
+}
+
+.project__more__button {
   display: flex;
   flex-direction: column;
   margin-top: 3em;
 }
-.project__more__button {
-  margin-left: 8.2em;
-}
+
 
 .project__img__slider {
   display: flex;
@@ -596,7 +625,7 @@ li.home__tag {
     margin: 3em 0 2em;
   }
 
-  .project__more__group img {
+  .project__more__button img {
     width: 150px;
   }
 
@@ -621,6 +650,17 @@ li.home__tag {
     height: 80px;
     margin-right: 10px;
     margin-bottom: 10px;
+  }
+
+  /* PROJECT */
+  .project__overview__btn__group{
+    top: 10px;
+    right: 14px;
+  }
+
+  .git__btn img{
+    width: 32px;
+    height: 32px;
   }
 
   /* CONTACT */
@@ -736,6 +776,24 @@ li.home__tag {
     height: 50px;
   }
 
+  /* PROJECT */
+
+  .project__container{
+    display: block;
+    background: #ffffff;
+  }
+
+  .project__img__box{
+    width: 83vw;
+    height: 70vw;
+    border: 1px solid;
+  }
+  .project__text{
+    margin-bottom: 10px;
+  }
+
+
+  /* CONTACT */
 
   #contact {
     padding: 5em 0;
