@@ -144,7 +144,7 @@ for(let i=0 ; i<10; i++){
 const projectdata = [
     {
         "id": 0,
-        "imgSrc":"IMG/project/newone.png",
+        "imgSrc":"IMG/project/newone.PNG",
         "projectTitle": "Newone",
         "projectDate": "2020.12.31 - 20.02.02",
         "projectDetail": "Author Community Site",
