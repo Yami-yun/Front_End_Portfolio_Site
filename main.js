@@ -191,6 +191,7 @@ let projectSliderImgList = [];
 
 
 const curProjectImg = document.querySelector(".project__img__box img");
+curProjectImg.src = projectdata[0].imgSrc;
 const curProjecdtDesList = document.querySelectorAll(".project__description .project__text");
 
 const projectDataKeys = Object.keys(projectdata[0]).splice(2,5);
